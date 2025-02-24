@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fale conosco</title>
+    <style>
+        #tabela{
+            display: flex;
+            align-items: center;
+            align-self: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        *{
+            background-color: #e0e0e0;
+        }
+        a{
+    text-decoration: none;
+}
+a:link, a:visited{
+    color: rgb(107, 107, 107);
+    padding: 8px 12px;
+}
+a:hover{
+    color: rgb(255, 198, 76);
+}
+
+    </style>
+</head>
+<body >
+    <div id="tabela">
+        <form>
+
+            <h1>Fale conosco!</h1>
+
+            <br>
+    
+            <label>
+                <p>Nome Completo*</p>
+                <input type="text" name="nome" placeholder="Digite o seu nome" required>
+            </label>
+
+            <label>
+                <p>Email*</p>
+                <input type="email" name="nome" placeholder="Digite o seu email" required>
+            </label>
+
+            <label>
+                <p>Telefone</p>
+                <input type="tel" name="nome" placeholder="Digite o seu telefone">
+            </label>
+
+            <label>
+                <p>Assunto*</p>
+                <input type="text" name="nome" placeholder="Digite o assunto" required>
+            </label>
+
+            <label>
+                <p>Mensagem*</p>
+                <textarea name="mensagem" placeholder="Digite a sua mensagem " required></textarea> 
+            </label>
+
+            <center><br><button type="submit">Enviar</button></center>
+
+            
+
+        </form>
+
+        <br>
+        <br>
+        <br>
+
+        <p><a href="index.html">Home</a></p>
+
+    </div>
+    <br>
+</body>
+</html>
