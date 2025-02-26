@@ -66,6 +66,10 @@ h1{
     background-color: rgb(97, 97, 97);
     border-radius: 16px;
     padding: 16px;
+    
+}
+#texto span{
+    color: rgb(255, 255, 255);
 }
 #imagem1{
     display: flex; 
