@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
 
 :root{
-    --linear-gradient: linear-gradient(180deg, #000000, #424242);
+    --linear-gradient: linear-gradient(180deg, #333333, #858585);
 }
 *{
     font-family: 'Poppins', sans-serif;
@@ -20,18 +20,23 @@ main{
     
 }
 body{
-    background: var(--linear-gradient);
+    background-image: url('../assets/imagens/imagem112.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     display: flex;
     height: 100vh;
 }
 #conteudo{
     display: flex;
-    background-color: white;
+    background: var(--linear-gradient);
     height: 70%;
-    width: 30%;
+    width: 50vh;
     border-radius: 16px;
     flex-direction: column;
     align-items: center;
+    max-height: 800px;
+    border: solid rgb(151, 151, 151);
 }
 #imgbox{
     display: flex;
@@ -45,6 +50,7 @@ body{
     width: 250px;
     height: 240px;
     border-radius: 150px;
+    border: solid rgb(0, 0, 0);
 }
 #texto{
     display: flex;
@@ -54,6 +60,7 @@ body{
     flex-direction: column;
     margin: 15px;
     text-align: center;
+    color: white;
 
 }
 #texto h1{
@@ -68,6 +75,7 @@ body{
     width: 120px;
     border-radius: 30px;
     margin: 5px;
+    border: solid rgb(255, 255, 255);
 }
 a{
     text-decoration: none;
