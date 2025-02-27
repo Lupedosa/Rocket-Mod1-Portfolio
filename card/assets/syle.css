@@ -37,6 +37,7 @@ body{
     align-items: center;
     max-height: 800px;
     border: solid rgb(151, 151, 151);
+    min-height: 700px;
 }
 #imgbox{
     display: flex;
