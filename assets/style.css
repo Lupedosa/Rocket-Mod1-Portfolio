@@ -1,15 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
 
-:root{
+:root {
     --linear-gradient: linear-gradient(180deg, #000000, #424242);
 }
-*{
+
+* {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-main{
+
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,27 +19,31 @@ main{
     margin: 20px;
     height: 100%;
     width: 100%;
-    
+
 }
-body{
+
+body {
     background: var(--linear-gradient);
     display: flex;
     height: 100vh;
 }
-h1{
+
+h1 {
     margin-top: 30px;
     font-size: 18px;
     color: white;
 }
-#lista{
+
+#lista {
     display: flex;
     flex-direction: column;
     margin-right: auto;
-    background-color: rgb(97, 97, 97);    
+    background-color: rgb(97, 97, 97);
     padding: 20px;
     border-radius: 16px;
 }
-#content{
+
+#content {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,41 +54,48 @@ h1{
     gap: 16px;
     max-width: 1500px;
 }
-#imagem{
-    
+
+#imagem {
+
     width: 300px;
     height: 300px;
     border-radius: 16px;
-      
+
 }
-#sobre{
+
+#sobre {
     display: flex;
     gap: 20px;
-        
+
 }
-#texto{
+
+#texto {
     display: flex;
     flex-direction: column;
     background-color: rgb(97, 97, 97);
     border-radius: 16px;
     padding: 16px;
-    
+
 }
-#texto span{
+
+#texto span {
     color: rgb(255, 255, 255);
 }
-#imagem1{
-    display: flex; 
+
+#imagem1 {
+    display: flex;
 }
-a{
+
+a {
     text-decoration: none;
 }
-a:link, a:visited{
+
+a:link,
+a:visited {
     color: rgb(255, 255, 255);
     padding: 8px 12px;
 }
-a:hover{
+
+a:hover {
     color: rgb(255, 198, 76);
 }
-
-

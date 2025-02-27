@@ -1,15 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
 
-:root{
+:root {
     --linear-gradient: linear-gradient(180deg, #333333, #858585);
 }
-*{
+
+* {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-main{
+
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,9 +19,10 @@ main{
     margin: 20px;
     height: 100%;
     width: 100%;
-    
+
 }
-body{
+
+body {
     background-image: url('../assets/imagens/imagem112.jpg');
     background-size: cover;
     background-position: center;
@@ -27,7 +30,8 @@ body{
     display: flex;
     height: 100vh;
 }
-#conteudo{
+
+#conteudo {
     display: flex;
     background: var(--linear-gradient);
     height: 70%;
@@ -37,9 +41,10 @@ body{
     align-items: center;
     max-height: 800px;
     border: solid rgb(151, 151, 151);
-    min-height: 750px;
+    min-height: 770px;
 }
-#imgbox{
+
+#imgbox {
     display: flex;
     height: 33%;
     width: 100%;
@@ -47,13 +52,15 @@ body{
     align-items: center;
     margin: 20px;
 }
-#imgbox img{
+
+#imgbox img {
     width: 250px;
     height: 240px;
     border-radius: 150px;
     border: solid rgb(0, 0, 0);
 }
-#texto{
+
+#texto {
     display: flex;
     font-size: 17px;
     justify-content: center;
@@ -64,10 +71,12 @@ body{
     color: white;
 
 }
-#texto h1{
+
+#texto h1 {
     font-size: 30px;
 }
-.links{
+
+.links {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -78,13 +87,17 @@ body{
     margin: 5px;
     border: solid rgb(255, 255, 255);
 }
-a{
+
+a {
     text-decoration: none;
 }
-a:link, a:visited{
+
+a:link,
+a:visited {
     color: rgb(255, 255, 255);
     padding: 8px 12px;
 }
-a:hover{
+
+a:hover {
     color: rgb(255, 198, 76);
 }
