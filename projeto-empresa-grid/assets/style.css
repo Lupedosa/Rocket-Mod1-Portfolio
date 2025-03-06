@@ -23,6 +23,9 @@ aside{
     background-color: rgb(55, 57, 108);
 }
 main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 32px;
     grid-area: main;
     background-color: rgb(224, 234, 255);
@@ -49,6 +52,8 @@ container1 {
     margin: 24px 0px;
     height: auto;
     width: auto;
+    margin-left: 50px;
+
 }
 
 .linha {
