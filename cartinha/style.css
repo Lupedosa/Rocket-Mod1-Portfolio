@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+}
+
+body {
+    margin-top: 100px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: url('assets/imagens/16119721-fundo-de-cartas-de-baralho-de-poquer-e-cassino-vetor.jpg');
+}
+
+html::-webkit-scrollbar {
+    width: 0.8rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: rgb(78, 128, 78);
+}
+
+html::-webkit-scrollbar-thumb {
+    background: rgb(98, 98, 177);
+}
+
+.container{
+    perspective: 800px;
+}
+
+.carta {
+    border-radius: 20px;
+    width: 400px;
+    height: 500px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.carta1 {
+    border: 4px solid rgb(10, 10, 126);
+    position: absolute;
+    width: 95%;
+    height: 110%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.carta:hover {
+    transform: rotateY(180deg);
+}
+
+.face .rainha{
+    width: 18rem;
+    position: absolute;
+}
+
+.face .espada-left {
+    width: 40px;
+    position: absolute;
+    left: 4px;
+    top: 50px;
+}
+
+.face .espada-right {
+    width: 40px;
+    position: absolute;
+    right: 4px;
+    bottom: 50px;
+    transform: rotate(180deg);
+}
+
+.face .numero {
+    position: absolute;
+    left: 4px;
+    top: -3px;
+    font-size: 50px;
+}
+
+.face .numero-1 {
+    width: 40px;
+    position: absolute;
+    right: 4px;
+    bottom: -3px;
+    transform: rotate(180deg);
+    font-size: 50px;
+}
+
+.face{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(166, 228, 166);
+}
+
+.fundo {
+    background-color:rgb(166, 228, 166);
+    transform: rotateY(180deg);
+}
+
+.fundo img{
+    width: 300px;
+}
+
+footer{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(13, 78, 13);
+    width: 100%;
+    padding: 20px 0px;
+}
+
+footer a{
+    color: white;
+}
