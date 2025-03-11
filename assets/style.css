@@ -112,8 +112,8 @@ header {
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 240px;
-    height: 200px;
+    width: 24rem;
+    height: 20rem;
     background: rgba(255, 255, 255, 0.5);
     color: black;
     border-radius: 8px;
