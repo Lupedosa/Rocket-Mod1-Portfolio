@@ -1,101 +1,246 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
 
 :root {
-    --linear-gradient: linear-gradient(180deg, #000000, #424242);
+    font-size: 62.5%;
+    --linear-gradient: linear-gradient(180deg, #ff1111, #b87700, red);
+    --linear-gradient2: linear-gradient(180deg, #b87700, red, #b87700);
 }
 
 * {
-    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 20px;
-    height: 100%;
-    width: 100%;
-
-}
-
-body {
-    background: var(--linear-gradient);
-    display: flex;
-    height: 100vh;
-}
-
-h1 {
-    margin-top: 30px;
-    font-size: 18px;
-    color: white;
-}
-
-#lista {
-    display: flex;
-    flex-direction: column;
-    margin-right: auto;
-    background-color: rgb(97, 97, 97);
-    padding: 20px;
-    border-radius: 16px;
-}
-
-#content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20px;
-    width: 100%;
-    border-color: black;
-    flex-direction: column;
-    gap: 16px;
-    max-width: 1500px;
-}
-
-#imagem {
-
-    width: 300px;
-    height: 300px;
-    border-radius: 16px;
-
-}
-
-#sobre {
-    display: flex;
-    gap: 20px;
-
-}
-
-#texto {
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(97, 97, 97);
-    border-radius: 16px;
-    padding: 16px;
-
-}
-
-#texto span {
-    color: rgb(255, 255, 255);
-}
-
-#imagem1 {
-    display: flex;
-}
-
-a {
+    font-family: 'Poppins', sans-serif;
     text-decoration: none;
 }
 
-a:link,
-a:visited {
-    color: rgb(255, 255, 255);
-    padding: 8px 12px;
+body {
+    height: 100vh;
+    background: url('imagens/foguete2.PNG') no-repeat center / cover;
+    padding: 50px 5%;
+
 }
 
-a:hover {
-    color: rgb(255, 198, 76);
+.container {
+    position: relative;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    border: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(5px);
+    transform: scale(0);
+    animation: zoom 0.6s ease forwards;
+}
+
+@keyframes zoom {
+    100% {
+        transform: scale(1);
+    }
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.animacao {
+    transform: translateY(30px);
+    opacity: 0;
+    animation: slide 1s ease forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes slide {
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.logo {
+    font-size: 2.5rem;
+    color: white;
+    font-weight: 600;
+}
+
+.navbar a {
+    font-size: 1.8rem;
+    color: white;
+    font-weight: 500;
+    margin-left: 35px;
+    border-bottom: 2px solid transparent;
+    transition: 0.5s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    border-color: white;
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 50px;
+    padding: 50px 5% 0;
+    color: white;
+    animation-delay: 1s;
+}
+
+.home-projetos {
+    position: absolute;
+    top: 80px;
+    justify-content: center;
+    display: flex;
+    gap: 50px;
+    padding: 50px 5% 0;
+    color: white;
+    animation-delay: 1s;
+    flex-wrap: wrap;
+}
+
+.projetos {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 240px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.5);
+    color: black;
+    border-radius: 8px;
+    font-size: 1.8rem;
+    font-weight: 800px;
+    overflow: hidden;
+    transition: 0.5s ease;
+    border: 2px solid rgb(220, 187, 1);
+    box-shadow: 0 0 10px rgb(221, 1, 1);
+}
+.projetos:hover{
+    transform: scale(1.2);
+    .projetos-label{
+    background-color: white;
+    }
+}
+.projetos-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 76%;
+}
+.projetos-img img{
+    height: 100%;
+    width: 100%;
+}
+.projetos-label{
+    height: 24%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    transition: 0.5s ease;
+    
+}
+
+.projetos-label a{
+    
+        background-image: var(--linear-gradient2);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 150px 15px 15px 15px;
+
+}
+.projetos-label a:hover{
+    background-image: var(--linear-gradient);
+}
+
+.home-detail h1 {
+    font-size: 5.5rem;
+    line-height: 1;
+}
+
+.home-detail h2 {
+    font-size: 3.2rem;
+}
+
+.home-detail p {
+    margin: 10px 0 20px;
+    font-size: 1.4rem;
+}
+
+.home-detail .download-social {
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 30px;
+    background: white;
+    border: 2px solid white;
+    border-radius: 40px;
+    box-shadow: 0 0 10px white;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    transition: 0.5s;
+    font-size: 1.2rem;
+}
+
+.btn:hover {
+    background: transparent;
+    box-shadow: none;
+    color: white;
+}
+
+.home-detail .social-icons {
+    margin-left: 20px;
+}
+
+.home-detail .social-icons a {
+    display: inline-flex;
+    padding: 8px;
+    border: 2px solid white;
+    border-radius: 50%;
+    font-size: 2rem;
+    color: white;
+    margin: 0 8px;
+    transition: 0.5s;
+}
+
+.home-detail .social-icons a:hover {
+    background: white;
+    box-shadow: 0 0 10px white;
+    color: black;
+}
+
+.home-img .img-box {
+    position: relative;
+    width: 28vw;
+    height: 28vw;
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 20px white;
+    overflow: hidden;
+}
+
+.home-img .img-box img {
+    position: absolute;
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    margin-top: 10px;
 }
