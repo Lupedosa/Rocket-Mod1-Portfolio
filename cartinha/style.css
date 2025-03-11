@@ -9,8 +9,11 @@ body {
     text-align: center;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
     background: url('assets/imagens/16119721-fundo-de-cartas-de-baralho-de-poquer-e-cassino-vetor.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 html::-webkit-scrollbar {
@@ -25,7 +28,7 @@ html::-webkit-scrollbar-thumb {
     background: rgb(98, 98, 177);
 }
 
-.container{
+.container {
     perspective: 800px;
 }
 
@@ -56,7 +59,7 @@ html::-webkit-scrollbar-thumb {
     transform: rotateY(180deg);
 }
 
-.face .rainha{
+.face .rainha {
     width: 18rem;
     position: absolute;
 }
@@ -92,7 +95,7 @@ html::-webkit-scrollbar-thumb {
     font-size: 50px;
 }
 
-.face{
+.face {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,15 +103,15 @@ html::-webkit-scrollbar-thumb {
 }
 
 .fundo {
-    background-color:rgb(166, 228, 166);
+    background-color: rgb(166, 228, 166);
     transform: rotateY(180deg);
 }
 
-.fundo img{
+.fundo img {
     width: 300px;
 }
 
-footer{
+footer {
     margin-top: 100px;
     display: flex;
     justify-content: center;
@@ -117,8 +120,20 @@ footer{
     background-color: rgb(13, 78, 13);
     width: 100%;
     padding: 20px 0px;
+    position: absolute;
+    bottom: 0;
 }
 
-footer a{
-    color: white;
+a {
+    text-decoration: none;
+}
+
+a:link,
+a:visited {
+    color: rgb(255, 255, 255);
+    padding: 8px 12px;
+}
+
+a:hover {
+    color: rgb(255, 198, 76);
 }
