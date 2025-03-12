@@ -6,6 +6,16 @@
     --linear-gradient2: linear-gradient(180deg, #b87700, red, #b87700);
 }
 
+@media (max-width: 1650px) {
+    :root {
+        font-size: 45%;
+    }
+}
+@media (max-width: 1365px) {
+    :root {
+        font-size: 40%;
+    }
+}
 * {
     margin: 0;
     padding: 0;
@@ -125,13 +135,17 @@ header {
     box-shadow: 0 0 10px rgb(221, 1, 1);
 }
 
-.projetos:hover{
+
+
+.projetos:hover {
     transform: scale(1.2);
-    .projetos-label{
-    background-color: white;
+
+    .projetos-label {
+        background-color: white;
     }
 }
-.projetos-img{
+
+.projetos-img {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -140,32 +154,36 @@ header {
     width: 100%;
     height: 76%;
 }
-.projetos-img img{
+
+.projetos-img img {
     height: 100%;
     width: 100%;
 }
-.projetos-label{
+
+.projetos-label {
     height: 24%;
     position: absolute;
     bottom: 0;
-    width: 100%;
+    width: 150%;
     padding: 5px;
     background: rgba(255, 255, 255, 0.5);
     transition: 0.5s ease;
-    
+    font-weight: 600;
 }
 
-.projetos-label a{
-    
-        background-image: var(--linear-gradient2);
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        padding: 150px 15px 15px 15px;
+.projetos-label a {
+
+    background-image: var(--linear-gradient2);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    padding: 150px 25px 15px;
 
 }
-.projetos-label a:hover{
+
+.projetos-label a:hover {
     background-image: var(--linear-gradient);
 }
 
@@ -180,7 +198,7 @@ header {
 
 .home-detail p {
     margin: 10px 0 20px;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
 }
 
 .home-detail .download-social {
@@ -198,7 +216,7 @@ header {
     color: rgb(0, 0, 0);
     font-weight: 500;
     transition: 0.5s;
-    font-size: 1.2rem;
+    font-size: 1.7rem;
 }
 
 .btn:hover {
