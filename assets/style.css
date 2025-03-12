@@ -100,7 +100,7 @@ header {
     justify-content: center;
     display: flex;
     gap: 50px;
-    padding: 50px 10px;
+    padding: 50px 10px 0px;
     color: white;
     animation-delay: 1s;
     flex-wrap: wrap;
