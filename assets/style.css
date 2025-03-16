@@ -11,11 +11,13 @@
         font-size: 45%;
     }
 }
+
 @media (max-width: 1365px) {
     :root {
         font-size: 40%;
     }
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -34,6 +36,8 @@ body {
 .container {
     position: relative;
     height: 100%;
+    width: 100%;
+    overflow: auto;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 30px;
     border: rgba(255, 255, 255, 1);
@@ -102,6 +106,7 @@ header {
     padding: 50px 5% 0;
     color: white;
     animation-delay: 1s;
+    justify-content: center;
 }
 
 .home-projetos {
@@ -262,4 +267,64 @@ header {
     width: 100%;
     object-fit: cover;
     margin-top: 10px;
+}
+
+.home-img-mini .img-box-mini {
+    display: none;
+    position: relative;
+    width: 65vw;
+    height: 65vw;
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 20px white;
+    overflow: hidden;
+}
+
+.home-img-mini .img-box-mini img {
+    position: absolute;
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+
+    .logo {
+        font-size: 4rem;
+    }
+
+    .navbar a {
+        font-size: 2.2rem;
+        margin-left: 16px;
+    }
+
+    .home {
+        justify-content: center;
+        gap: 0;
+    }
+
+    .home-img .img-box {
+        display: none;
+    }
+
+    .home-img-mini .img-box-mini {
+        display: block;
+        transform: translate(13%, -13%);
+    }
+
+    .home-detail .social-icons a {
+        margin: 0 2px;
+    }
+
+    .home-projetos{
+        gap: 20px;
+    }
+
+    .projetos {
+        width: 16vh;
+        height: 12vh;
+        font-size: 1.6rem;
+    }
+
 }
