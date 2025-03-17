@@ -54,15 +54,15 @@ body {
 }
 
 #imgbox img {
-    width: 250px;
-    height: 240px;
+    width: 15rem;
+    height: auto;
     border-radius: 150px;
     border: solid rgb(0, 0, 0);
 }
 
 #texto {
     display: flex;
-    font-size: 17px;
+    font-size: 1.1rem;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -81,11 +81,16 @@ body {
     justify-content: center;
     align-items: center;
     background-color: rgb(84, 84, 84);
-    height: 50px;
-    width: 120px;
+    height: 3.5rem;
+    width: 8rem;
     border-radius: 30px;
     margin: 5px;
     border: solid rgb(255, 255, 255);
+    transition: 0.5s ease-in-out;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+.links:hover{
+    transform: scale(1.2);
 }
 
 a {
@@ -100,4 +105,13 @@ a:visited {
 
 a:hover {
     color: rgb(255, 198, 76);
+}
+@media (max-width: 600px){
+    #conteudo{
+        height: 70%;
+        width: 40vh;
+    }
+    #texto{
+        font-size: .9rem;
+    }
 }
