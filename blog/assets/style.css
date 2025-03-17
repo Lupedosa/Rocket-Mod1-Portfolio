@@ -92,7 +92,14 @@ a {
         opacity: 1;
     }
 }
-
+@keyframes slide2 {
+    0%{
+        left: -300px;
+    }
+    100%{
+        left: 0;
+    }
+}
 .main .col {
     width: 48%;
 }
@@ -232,7 +239,8 @@ footer {
         justify-content: center;
         flex-direction: column;
         padding: 1.25rem;
-        animation: slide 0.2s ease;
+        
+        animation: slide2 0.2s ease;
     }
 
     .sobre {
