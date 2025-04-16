@@ -1,0 +1,139 @@
+
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+
+<body class="d-flex flex-column align-items-center justify-content-center mt-5 contaienr-fluid">
+    <br><br><br>
+    
+
+    <form id="userForm" class="d-flex flex-column bg-dark p-5 rounded-4">
+
+        <h3 class="text-light mx-auto">Formulário</h3>
+
+        <div class="my-3">
+            <label for="exampleInputEmail1" class="form-label text-light">Nome</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label text-light">Email</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1"
+                placeholder="name@example.com" required>
+            <div class="invalid-feedback">Por favor, insira um email válido.</div>
+            <div class="valid-feedback">Email válido!</div>
+        </div>
+
+        <label for="exampleFormControlSelect1" class="form-label text-light">Assunto</label>
+        <select class="form-select mb-3" aria-label="Default select example" id="exampleFormControlSelect1">
+            <option selected>Selecione seu assunto</option>
+            <option value="1">Sugestão</option>
+            <option value="2">Reclamação</option>
+            <option value="3">Elogio</option>
+        </select>
+
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label text-light">Mensagem</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary mx-auto">Submit</button>
+    </form>
+
+    <div id="sucesso" class="alert alert-success mt-3 d-none" role="alert">
+        Formulário enviado com sucesso!
+    </div>
+
+    <footer class="bg-dark text-white text-center w-100 fixed-bottom">
+        <div class="container py-4">
+            <p>© Todos os direitos reservados - Luan Pereira</p>
+            <a class="text-decoration-none text-white" href="https://lupedosa.github.io/Rocket-Mod1-Portfolio/index.html">
+                Portfolio
+            </a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous">
+    </script>
+    <script>
+        const form = document.getElementById('userForm');
+        const emailInput = document.getElementById('exampleFormControlInput1');
+        const nomeInput = document.getElementById('exampleInputEmail1');
+        const assuntoSelect = document.getElementById('exampleFormControlSelect1');
+        const mensagemTextarea = document.getElementById('exampleFormControlTextarea1');
+        const successMessage = document.getElementById('sucesso');
+    
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); // Evita envio do formulário
+    
+            let isFormValid = true;
+    
+            // Validação do campo nome
+            if (nomeInput.value.trim() === '') {
+                nomeInput.classList.add('is-invalid');
+                nomeInput.classList.remove('is-valid');
+                isFormValid = false;
+            } else {
+                nomeInput.classList.remove('is-invalid');
+                nomeInput.classList.add('is-valid');
+            }
+    
+            // Validação do campo email
+            if (emailInput.checkValidity()) {
+                emailInput.classList.remove('is-invalid');
+                emailInput.classList.add('is-valid');
+            } else {
+                emailInput.classList.remove('is-valid');
+                emailInput.classList.add('is-invalid');
+                isFormValid = false;
+            }
+    
+            // Validação do select
+            if (assuntoSelect.value === "Selecione seu assunto") {
+                assuntoSelect.classList.add('is-invalid');
+                assuntoSelect.classList.remove('is-valid');
+                isFormValid = false;
+            } else {
+                assuntoSelect.classList.remove('is-invalid');
+                assuntoSelect.classList.add('is-valid');
+            }
+    
+            // Validação do textarea
+            if (mensagemTextarea.value.trim() === '') {
+                mensagemTextarea.classList.add('is-invalid');
+                mensagemTextarea.classList.remove('is-valid');
+                isFormValid = false;
+            } else {
+                mensagemTextarea.classList.remove('is-invalid');
+                mensagemTextarea.classList.add('is-valid');
+            }
+    
+            // Exibe a mensagem de sucesso somente se o formulário estiver todo válido
+            if (isFormValid) {
+                successMessage.classList.remove('d-none');
+                form.reset();
+    
+                // Remove as classes de validação para limpeza visual
+                const inputs = form.querySelectorAll('.form-control, .form-select');
+                inputs.forEach(input => {
+                    input.classList.remove('is-valid', 'is-invalid');
+                });
+            } else {
+                successMessage.classList.add('d-none');
+            }
+        });
+    </script>
+    
+    
+</body>
+
+</html>
