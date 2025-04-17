@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Férias dos Sonhos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+
+<body class="min-vh-100 d-flex flex-column" style="background-color: rgb(227, 210, 171);">
+    <nav class="navbar navbar-expand-lg bg-dark shadow mb-sm-0" data-bs-theme="dark">
+        <div class="container">
+            <a href="#" class="navbar-brand text-white">Férias dos Sonhos</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDropdown"
+                aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarDropdown">
+                <ul class="navbar-nav ms-auto ">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active text-white" aria-current="page">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pt2" class="nav-link text-white">Agendar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://lupedosa.github.io/Rocket-Mod1-Portfolio/"
+                            class="nav-link text-white">Portfolio</a>
+                    </li>
+                    <li class="nav-item d-lg-none d-block">
+                        <a href="#" class="nav-link btn btn-primary text-white">Voltar</a>
+                    </li>
+                </ul>
+
+                <button type="button" class="btn btn-primary mx-4 bg-light text-dark">
+                    Notifications <span class="badge bg-secondary">4</span>
+                </button>
+
+            </div>
+        </div>
+    </nav>
+
+    <main class="container pb-5">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Seja bem vindo!!!</strong> Aproveite o nosso novo site!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div class="row min-vh-100">
+            <div class="col-sm my-sm-1 py-sm-1 pt-4 d-flex justify-content-center align-items-center">
+                <h1 class="text-end-sm text-center display-4">Agende conosco a viagem dos seus <span
+                        class="text-danger text-end">sonhos!</span></h1>
+            </div>
+            <div id="carouselExampleInterval"
+                class="carousel slide d-flex align-items-center justify-content-center col-sm-9 m-auto"
+                data-bs-ride="carousel" style="max-width: 900px; min-height: 600px;">
+                <div class="carousel-inner shadow">
+                    <div class="carousel-item active" data-bs-interval="3000">
+                        <img src="assets/imagens/turismo.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <img src="assets/imagens/turismo1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/imagens/turismo3.webp" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            <!-- <div class="col-sm-6 my-sm-1 py-sm-1 my-1 py-5 d-flex justify-content-center">
+                <img class="img-fluid w-75" src="assets/imagens/image.png" alt="">
+            </div> -->
+        </div>
+        <div class="row min-vh-100">
+            <div class="col-sm my-sm-1 py-sm-1 pt-4 d-flex">
+                <h1 class="text-end-sm text-center display-4" id="pt2">Seu plano turístico ideal a apenas alguns <span
+                        class="text-danger text-end">clicks</span> de
+                    distância </h1>
+            </div>
+            <div class="row gy-4 mt-sm-0 d-flex justify-content-center">
+                <div class="col-lg-3 col-sm-6 d-flex justify-content-center align-items-center">
+                    <div class="card" style="width: 18rem;">
+                        <img src="assets/imagens/image.png" class="card-img-top" alt="...">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Rio de Janeiro</h5>
+                            <p class="card-text">Descubra o Rio de Janeiro com nosso pacote exclusivo: praias
+                                deslumbrantes, Cristo Redentor, Pão de Açúcar e cultura vibrante em uma experiência
+                                inesquecível. Viva a energia carioca!</p>
+                            <a href="#" class="btn btn-primary">Consultar disponibilidade</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 d-flex justify-content-center align-items-center">
+                    <div class="card" style="width: 18rem;">
+                        <img src="assets/imagens/imageeeecopy.png" class="card-img-top" alt="...">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Salvador</h5>
+                            <p class="card-text">Explore Salvador com nosso pacote especial: história, cultura
+                                afro-brasileira, praias paradisíacas e o sabor autêntico da Bahia. Uma viagem cheia de
+                                cores, ritmos e alegria!</p>
+                            <a href="#" class="btn btn-primary">Consultar disponibilidade</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 d-flex justify-content-center align-items-center">
+                    <div class="card" style="width: 18rem;">
+                        <img src="assets/imagens/image_copy1.png" class="card-img-top" alt="...">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Roma</h5>
+                            <p class="card-text">Descubra Roma com nosso pacote exclusivo: Coliseu, Vaticano, fontes
+                                históricas e culinária italiana. Viva a Cidade Eterna com charme, arte, romance e muita
+                                história em cada esquina!</p>
+                            <a href="#" class="btn btn-primary">Consultar disponibilidade</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 d-flex justify-content-center align-items-center">
+                    <div class="card" style="width: 18rem;">
+                        <img src="assets/imagens/image_copy2.png" class="card-img-top" alt="...">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">México</h5>
+                            <p class="card-text">Explore as fascinantes ruínas maias em meio à selva! Visite templos
+                                ancestrais, pirâmides sagradas e viva uma imersão cultural inesquecível na história
+                                milenar da Mesoamérica.</p>
+                            <a href="#" class="btn btn-primary">Consultar disponibilidade</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gy-4 mt-sm-0 d-flex justify-content-center">
+                    <div class="col-lg-3 col-sm-6 d-flex justify-content-center align-items-center">
+                        <div class="card" style="width: 18rem;">
+                            <img src="assets/imagens/image_copy3.png" class="card-img-top" alt="...">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Itália</h5>
+                                <p class="card-text">Descubra o charme da Itália com nosso pacote exclusivo! Passe por
+                                    Roma, Veneza e Florença, saboreie vinhos, massas e viva a arte, história e cultura
+                                    italianas intensamente.</p>
+                                <a href="#" class="btn btn-primary">Consultar disponibilidade</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 d-flex justify-content-center align-items-center">
+                        <div class="card" style="width: 18rem;">
+                            <img src="assets/imagens/turismo4.jpg" class="card-img-top" alt="...">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Fortaleza</h5>
+                                <p class="card-text">Relaxe com nosso pacote de viagem para a praia! Sol, mar
+                                    cristalino, areia branca, caipirinhas e dias perfeitos de descanso em um paraíso
+                                    tropical inesquecível. Reserve agora!</p>
+                                <a href="#" class="btn btn-primary">Consultar disponibilidade</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 d-flex justify-content-center align-items-center">
+                        <div class="card" style="width: 18rem;">
+                            <img src="assets/imagens/image_copy5.png" class="card-img-top" alt="...">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Nova York</h5>
+                                <p class="card-text">Descubra Nova York com nosso pacote exclusivo! Visite a Times
+                                    Square, Central Park, museus incríveis e aproveite a vibrante vida noturna da cidade
+                                    que nunca dorme.</p>
+                                <a href="#" class="btn btn-primary">Consultar disponibilidade</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 d-flex justify-content-center align-items-center">
+                        <div class="card" style="width: 18rem;">
+                            <img src="assets/imagens/image_copy6.png" class="card-img-top" alt="...">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Rússia</h5>
+                                <p class="card-text">Explore a Rússia com nosso pacote especial! Visite Moscou e São
+                                    Petersburgo, descubra palácios imperiais, catedrais históricas e mergulhe na rica
+                                    cultura e gastronomia russa.</p>
+                                <a href="#" class="btn btn-primary">Consultar disponibilidade</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+    <footer class="py-4 bg-dark mt-auto text-white text-center">
+        <div class="container">
+            <p>
+                © Todos os direitos reservados
+            </p>
+            <a class="text-decoration-none" href="https://lupedosa.github.io/Rocket-Mod1-Portfolio/index.html">
+                Portfolio
+            </a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
