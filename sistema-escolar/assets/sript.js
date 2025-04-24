@@ -1,3 +1,4 @@
+        console.log("sadasdsadsa")        
         class User {
             constructor(name, email, password) {
                 this.name = name
@@ -28,6 +29,11 @@
                 super(name, email, password)
                 this.turma = turma
             }
+
+            exibirPerfil(){
+                super.exibirPerfil();
+                console.log(`Turma: ${this.turma}`)
+            }
     
             get turma() { return this._turma }
             set turma(turma) { this._turma = turma }
@@ -37,6 +43,11 @@
             constructor(name, email, password, materias) {
                 super(name, email, password)
                 this.materias = materias
+            }
+
+            exibirPerfil(){
+                super.exibirPerfil();
+                console.log(`Matéria(s): ${this.materias}`)
             }
     
             get materias() { return this._materias }
