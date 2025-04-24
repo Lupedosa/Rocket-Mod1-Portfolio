@@ -72,11 +72,10 @@
         const successMessage = document.getElementById('sucesso');
 
         form.addEventListener('submit', function (event) {
-            event.preventDefault(); // Evita envio do formulário
+            event.preventDefault();
 
             let isFormValid = true;
 
-            // Validação do campo nome
             if (nomeInput.value.trim() === '') {
                 nomeInput.classList.add('is-invalid');
                 nomeInput.classList.remove('is-valid');
@@ -86,7 +85,6 @@
                 nomeInput.classList.add('is-valid');
             }
 
-            // Validação do campo email
             if (emailInput.checkValidity()) {
                 emailInput.classList.remove('is-invalid');
                 emailInput.classList.add('is-valid');
@@ -96,7 +94,6 @@
                 isFormValid = false;
             }
 
-            // Validação do select
             if (assuntoSelect.value === "Selecione seu assunto") {
                 assuntoSelect.classList.add('is-invalid');
                 assuntoSelect.classList.remove('is-valid');
@@ -106,7 +103,6 @@
                 assuntoSelect.classList.add('is-valid');
             }
 
-            // Validação do textarea
             if (mensagemTextarea.value.trim() === '') {
                 mensagemTextarea.classList.add('is-invalid');
                 mensagemTextarea.classList.remove('is-valid');
@@ -116,12 +112,10 @@
                 mensagemTextarea.classList.add('is-valid');
             }
 
-            // Exibe a mensagem de sucesso somente se o formulário estiver todo válido
             if (isFormValid) {
                 successMessage.classList.remove('d-none');
                 form.reset();
 
-                // Remove as classes de validação para limpeza visual
                 const inputs = form.querySelectorAll('.form-control, .form-select');
                 inputs.forEach(input => {
                     input.classList.remove('is-valid', 'is-invalid');
