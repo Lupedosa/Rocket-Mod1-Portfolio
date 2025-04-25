@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+h1{
+    margin: 32px;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+main{
+    display: flex;
+    margin-bottom: 12vh;
+}
+
+.comodo {
+    width: 25vh;
+    height: 20vh;
+    margin-bottom: 10px;
+    background-color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --text-color: #fff;
+    position: relative;
+    border: none;
+    color: var(--text-color);
+    padding: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.2s;
+    border-radius: 5px;
+    opacity: 0.8;
+    letter-spacing: 1px;
+    box-shadow: #423e3e 0px 7px 2px, #000 0px 8px 5px;
+    margin: 10px;
+    margin-bottom: 60px;
+
+}
+
+.container{
+    margin: 1vh;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* From Uiverse.io by satyamchaudharydev */ 
+button {
+    --bg: #6b5351;
+    --text-color: #fff;
+    position: relative;
+    width: 170px;
+    border: none;
+    background: var(--bg);
+    color: var(--text-color);
+    padding: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.2s;
+    border-radius: 5px;
+    opacity: 0.8;
+    letter-spacing: 1px;
+    box-shadow: #c0392b 0px 7px 2px, #000 0px 8px 5px;
+    margin: 10px;
+  }
+  
+  button:hover {
+    opacity: 1;
+  }
+  
+  button:active {
+    top: 4px;
+    box-shadow: #c0392b 0px 3px 2px,#000 0px 3px 5px;
+  }
+
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(76, 76, 76);
+    width: 100%;
+    padding: 20px 0px;
+    position: absolute;
+    bottom: 0px;
+
+    p{
+        color: #ffffff;
+    }
+}
+a{
+    color: #ffffff;
+}

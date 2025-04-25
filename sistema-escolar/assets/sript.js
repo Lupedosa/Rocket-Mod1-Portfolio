@@ -1,4 +1,3 @@
-        console.log("sadasdsadsa")        
         class User {
             constructor(name, email, password) {
                 this.name = name
