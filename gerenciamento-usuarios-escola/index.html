@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="taskModule">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Escola</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+</head>
+
+<body ng-controller="AppController">
+
+    <h1 ng-bind="mensagem"></h1>
+
+    <div class="user-card">
+        <p><strong>Nome:</strong> {{ usuario.nome }}</p>
+        <p><strong>Tipo:</strong> {{ usuario.tipo }}</p>
+
+        <img ng-if="usuario.tipo === 'Aluno'" src="assets/imagens/image.png">
+        <img ng-if="usuario.tipo === 'Professor'" src="assets/imagens/image-copy.png">
+    </div>
+
+    <script src="assets/js/script.js"></script>
+
+</body>
+
+</html>
