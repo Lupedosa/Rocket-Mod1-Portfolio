@@ -5,24 +5,154 @@
     <meta charset="UTF-8">
     <title>Escola</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <link rel="stylesheet" href="assets/css/style.css">
-    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            text-decoration: none;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .user-card {
+            background-color: white;
+            padding: 20px;
+            margin: 10px auto;
+            width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .user-info {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .user-card p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .user-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #eee;
+        }
+
+        .filters {
+            background-color: white;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .counters {
+            margin-top: 20px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .counters span {
+            margin: 0 10px;
+        }
+    </style>
 </head>
 
 <body ng-controller="AppController">
+    <h1>{{ mensagem }}</h1>
 
-    <h1 ng-bind="mensagem"></h1>
+    <div class="filters">
+        <div class="filter-group">
+            <label for="filtro">Buscar por nome:</label>
+            <input type="text" id="filtro" ng-model="filtro" placeholder="Digite para filtrar...">
+        </div>
 
-    <div class="user-card">
-        <p><strong>Nome:</strong> {{ usuario.nome }}</p>
-        <p><strong>Tipo:</strong> {{ usuario.tipo }}</p>
+        <div class="filter-group">
+            <label for="filtroTipo">Filtrar por tipo:</label>
+            <select id="filtroTipo" ng-model="filtroTipo">
+                <option value="">Todos</option>
+                <option value="Aluno">Aluno</option>
+                <option value="Professor">Professor</option>
+            </select>
+        </div>
 
-        <img ng-if="usuario.tipo === 'Aluno'" src="assets/imagens/image.png">
-        <img ng-if="usuario.tipo === 'Professor'" src="assets/imagens/image-copy.png">
+        <div class="counters">
+            <span>Total de Alunos: {{ (usuarios | filter:{tipo:'Aluno'}).length }}</span>
+            <span>Total de Professores: {{ (usuarios | filter:{tipo:'Professor'}).length }}</span>
+        </div>
     </div>
 
-    <script src="assets/js/script.js"></script>
+    <div ng-controller="UserListController">
+        <div ng-repeat="usuario in usuarios | filter:filtro | filter:{ tipo: filtroTipo }" class="user-card">
+            <img ng-src="{{ usuario.tipo === 'Aluno' ? 'assets/imagens/image.png' : 'assets/imagens/image-copy.png' }}" 
+                 alt="{{ usuario.tipo }}" 
+                 class="user-image">
+            
+            <div class="user-info">
+                <p><strong>Nome:</strong> {{ usuario.nome | uppercase }}</p>
+                <p><strong>Tipo:</strong> {{ usuario.tipo }}</p>
+                <p><strong>Data de Cadastro:</strong> {{ usuario.dataCadastro | date:'dd/MM/yyyy' }}</p>
+            </div>
+        </div>
+    </div>
 
+    <script>
+        const app = angular.module('taskModule', []);
+
+        app.controller('AppController', function ($scope) {
+            $scope.mensagem = "Bem-vindo ao sistema de cadastro escolar";
+            
+            $scope.usuarios = [
+                { nome: "João Silva", tipo: "Aluno", dataCadastro: new Date(2023, 0, 15) },
+                { nome: "Maria Santos", tipo: "Professor", dataCadastro: new Date(2022, 5, 20) },
+                { nome: "Carlos Oliveira", tipo: "Aluno", dataCadastro: new Date(2023, 2, 10) },
+                { nome: "Ana Pereira", tipo: "Professor", dataCadastro: new Date(2022, 8, 5) },
+                { nome: "Pedro Costa", tipo: "Aluno", dataCadastro: new Date(2023, 1, 28) }
+            ];
+            
+            $scope.filtro = '';
+            $scope.filtroTipo = '';
+        });
+
+        app.controller('UserListController', function ($scope) {
+        });
+    </script>
 </body>
-
 </html>

@@ -2,6 +2,10 @@ const app = angular.module('taskModule', []);
 
 app.controller('TaskController', function ($scope) {
     $scope.modalActive = false;
+    $scope.showCompletedOnly = false;
+    $scope.showIncompletedOnly = false;
+    $scope.showTodayOnly = false;
+    $scope.today = new Date().toLocaleDateString();
     $scope.tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
 
     $scope.taskInput = {
@@ -14,7 +18,6 @@ app.controller('TaskController', function ($scope) {
         $scope.modalActive = !$scope.modalActive;
     };
 
-    
     $scope.handleSubmitAddTask = () => {
 
         const title = $scope.taskInput.title;
@@ -27,6 +30,7 @@ app.controller('TaskController', function ($scope) {
             title: title,
             date: date,
             dateStr: date.toLocaleDateString(),
+            checked: false
         });
 
         localStorage.setItem('tasks', JSON.stringify($scope.tasks));
@@ -40,9 +44,11 @@ app.controller('TaskController', function ($scope) {
         localStorage.setItem('tasks', JSON.stringify($scope.tasks));
         
     };
-    
+        
     $scope.deleteTask = (currentTask) => {
         $scope.tasks = $scope.tasks.filter(task => task.id !== currentTask.id)
         localStorage.setItem('tasks', JSON.stringify($scope.tasks));
     };
+
+    console.log($scope.tasks)
 });

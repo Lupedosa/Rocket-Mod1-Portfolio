@@ -23,28 +23,27 @@
         </section>
         <section class="filters">
             <label class="checkbox">
-                <input type="checkbox">
+                <input type="checkbox" ng-model="showCompletedOnly">
                 <span></span>
                 Completas
             </label>
             <label class="checkbox">
-                <input type="checkbox">
+                <input type="checkbox" ng-model="showIncompletedOnly">
                 <span></span>
                 Incompletas
             </label>
             <label class="checkbox">
-                <input type="checkbox">
+                <input type="checkbox" ng-model="showTodayOnly">
                 <span></span>
                 Para hoje
             </label>
         </section>
     </header>
     <main id="content">
-        <article 
-        ng-repeat="task in tasks" 
-        class="task" 
-        ng-class="{'checked': task.checked}">
-        <!-- ng-style="{'color': 'red'}" -->
+        <article
+            ng-repeat="task in tasks | orderBy: 'checked' | filter: (showCompletedOnly ? {checked: true} : {}) | filter: (showIncompletedOnly ? {checked: false} : {}) | filter: (showTodayOnly ? {dateStr: today} : {})"
+            class="task" ng-class="{'checked': task.checked}">
+            <!-- ng-style="{'color': 'red'}" -->
             <label class="checkbox">
                 <input type="checkbox" ng-model="task.checked" ng-change="toggleCheckedTask()">
                 <span></span>
@@ -57,7 +56,8 @@
                 </span>
             </button>
         </article>
-        <p ng-hide="!!tasks.length" class="empty">Nenhuma tarefa cadastrada.</p>
+        <p ng-show="!(tasks | orderBy: 'checked' | filter: (showCompletedOnly ? {checked: true} : {}) | filter: (showIncompletedOnly ? {checked: false} : {}) | filter: (showTodayOnly ? {dateStr: today} : {})).length"
+            class="empty">Nenhuma tarefa cadastrada.</p>
     </main>
 
     <aside ng-if="modalActive" class="modal-container">
@@ -72,7 +72,7 @@
             <form ng-submit="handleSubmitAddTask()">
                 <label for="">
                     <p>Nome</p>
-                    <input type="text"placeholder="Nome da tarefa" ng-model="taskInput.title">
+                    <input type="text" placeholder="Nome da tarefa" ng-model="taskInput.title">
                 </label>
                 <label for="">
                     <p>Nome</p>
