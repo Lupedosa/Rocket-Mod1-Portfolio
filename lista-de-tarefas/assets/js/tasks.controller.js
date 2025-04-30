@@ -1,13 +1,12 @@
-const app = angular.module('taskModule', []);
-
-app.controller('TaskController', function ($scope) {
+app.controller('TaskController', function ($scope, TaskService) {
     $scope.modalActive = false;
     $scope.showCompletedOnly = false;
     $scope.showIncompletedOnly = false;
     $scope.showTodayOnly = false;
     $scope.today = new Date().toLocaleDateString();
-    $scope.tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
-
+    $scope.tasks = TaskService.getTasks();
+    //$scope.tasks = 
+    console.log(TaskService)
     $scope.taskInput = {
         title: "",
         date: "",
@@ -22,18 +21,9 @@ app.controller('TaskController', function ($scope) {
 
         const title = $scope.taskInput.title;
         const date = $scope.taskInput.date;
-
         if (!title || !date) return;
-        
-        $scope.tasks.push({
-            id: Math.random().toString(36).substring(2,9),
-            title: title,
-            date: date,
-            dateStr: date.toLocaleDateString(),
-            checked: false
-        });
 
-        localStorage.setItem('tasks', JSON.stringify($scope.tasks));
+        TaskService.addTask(title, date);
 
         $scope.toggleModal();
         $scope.taskInput.title = "";
@@ -41,13 +31,13 @@ app.controller('TaskController', function ($scope) {
     };
 
     $scope.toggleCheckedTask = () => {
-        localStorage.setItem('tasks', JSON.stringify($scope.tasks));
-        
+        TaskService.toggleCheck();
+        $scope.tasks = TaskService.getTasks();
     };
         
     $scope.deleteTask = (currentTask) => {
-        $scope.tasks = $scope.tasks.filter(task => task.id !== currentTask.id)
-        localStorage.setItem('tasks', JSON.stringify($scope.tasks));
+        TaskService.removeTask(currentTask.id);
+        $scope.tasks = TaskService.getTasks();
     };
 
     console.log($scope.tasks)

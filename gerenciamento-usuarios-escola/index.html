@@ -6,9 +6,10 @@
     <title>Escola</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-<body ng-controller="AppController">
+<body ng-controller="AppController" ng-class="{'modal-open': showForm}">
     <h1>{{ mensagem }}</h1>
 
     <div class="filters">
@@ -29,7 +30,31 @@
         <div class="counters">
             <span>Total de Alunos: {{ (usuarios | filter:{tipo:'Aluno'}).length }}</span>
             <span>Total de Professores: {{ (usuarios | filter:{tipo:'Professor'}).length }}</span>
+            <button class="add-btn" ng-click="showForm = true">Adicionar Usuário</button>
         </div>
+    </div>
+
+    <div class="modal-overlay" ng-show="showForm" ng-click="showForm = false"></div>
+
+    <div class="add-user-modal" ng-show="showForm">
+        <div class="modal-header">
+            <h2>Adicionar Novo Usuário</h2>
+            <i class="material-icons close-icon" ng-click="showForm = false">close</i>
+        </div>
+        <form ng-submit="adicionarUsuario()" ng-click="$event.stopPropagation()">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" ng-model="novoUsuario.nome" required>
+            </div>
+            <div class="form-group">
+                <label for="tipo">Tipo:</label>
+                <select id="tipo" ng-model="novoUsuario.tipo" required>
+                    <option value="Aluno">Aluno</option>
+                    <option value="Professor">Professor</option>
+                </select>
+            </div>
+            <button type="submit" ng-disabled="!novoUsuario.nome || !novoUsuario.tipo">Adicionar</button>
+        </form>
     </div>
 
     <div ng-controller="UserListController">
@@ -43,6 +68,7 @@
                 <p><strong>Tipo:</strong> {{ usuario.tipo }}</p>
                 <p><strong>Data de Cadastro:</strong> {{ usuario.dataCadastro | date:'dd/MM/yyyy' }}</p>
             </div>
+            <button class="remove-btn" ng-click="removerUsuario($index)">Remover</button>
         </div>
     </div>
 
