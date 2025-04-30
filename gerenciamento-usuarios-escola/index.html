@@ -58,7 +58,7 @@
     </div>
 
     <div ng-controller="UserListController">
-        <div ng-repeat="usuario in usuarios | filter:filtro | filter:{ tipo: filtroTipo }" class="user-card">
+        <div ng-repeat="usuario in usuarios | filter:filtro | filter:{ tipo: filtroTipo } track by usuario.id" class="user-card">
             <img ng-src="{{ usuario.tipo === 'Aluno' ? 'assets/imagens/image.png' : 'assets/imagens/image-copy.png' }}" 
                  alt="{{ usuario.tipo }}" 
                  class="user-image">
@@ -68,7 +68,7 @@
                 <p><strong>Tipo:</strong> {{ usuario.tipo }}</p>
                 <p><strong>Data de Cadastro:</strong> {{ usuario.dataCadastro | date:'dd/MM/yyyy' }}</p>
             </div>
-            <button class="remove-btn" ng-click="removerUsuario($index)">Remover</button>
+            <button class="remove-btn" ng-click="removerUsuario(usuario.id)">Remover</button>
         </div>
     </div>
 

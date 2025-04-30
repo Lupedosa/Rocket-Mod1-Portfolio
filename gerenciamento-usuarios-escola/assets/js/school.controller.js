@@ -10,30 +10,32 @@ window.app.controller('AppController', ['$scope', 'UsuarioService',
             nome: '',
             tipo: 'Aluno'
         };
-        
+    
         $scope.adicionarUsuario = function() {
+            if (!$scope.novoUsuario.nome) return;
+            
             UsuarioService.adicionar(angular.copy($scope.novoUsuario));
-            $scope.novoUsuario = {
-                nome: '',
-                tipo: 'Aluno'
-            };
+            $scope.novoUsuario = { nome: '', tipo: 'Aluno' };
             $scope.showForm = false;
-            $scope.usuarios = UsuarioService.listar();
-        };
-        
-        $scope.removerUsuario = function(index) {
-            UsuarioService.remover(index);
-            $scope.usuarios = UsuarioService.listar();
+            $scope.atualizarLista();
         };
     
-        $scope.$watchGroup(['filtro', 'filtroTipo'], function(newValues) {
-            if (newValues[0] || newValues[1]) {
-                $scope.usuarios = UsuarioService.filtrar(newValues[0], newValues[1]);
+        $scope.removerUsuario = function(id) {
+            UsuarioService.remover(id);
+            $scope.atualizarLista();
+        };
+    
+        $scope.atualizarLista = function() {
+            if ($scope.filtro || $scope.filtroTipo) {
+                $scope.usuarios = UsuarioService.filtrar($scope.filtro, $scope.filtroTipo);
             } else {
                 $scope.usuarios = UsuarioService.listar();
             }
+        };
+    
+        $scope.$watchGroup(['filtro', 'filtroTipo'], function() {
+            $scope.atualizarLista();
         });
     }]);
     
-    window.app.controller('UserListController', ['$scope', function($scope) {
-    }]);
+    window.app.controller('UserListController', ['$scope', function($scope) {}]);
