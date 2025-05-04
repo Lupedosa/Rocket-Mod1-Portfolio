@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  height: 100vh;
+  font-size: 1.6rem;
+  height: 100vh;
+  background: url("imagens/background.png") no-repeat center / cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: -2rem;
+}
+
+.icon {
+  width: 12.8rem;
+  height: 12.8rem;
+  margin: 0 auto;
+}
+
+.card {
+  display: none;
+  flex-direction: column;
+  width: 90%;
+  max-width: 30rem;
+  padding: 2.4rem;
+  border-radius: 1.6rem;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 0.1rem solid rgba(255, 255, 255, 0.5);
+  gap: 0.8rem;
+}
+
+.card.active{
+    display: flex;
+}
+
+.card h2 {
+  text-align: center;
+  font-size: 4.8rem;
+}
+
+.wind {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  gap: 0.8rem;
+  justify-content: center;
+}
+
+.wind img {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  background-color: white;
+  object-fit: contain;
+}
+
+.min-max {
+  display: flex;
+  justify-content: center;
+  gap: 1.6rem;
+}
+
+.feels-like {
+  text-align: center;
+}
+
+.feels-like {
+  text-align: center;
+}
+
+.humidity {
+  text-align: center;
+}
+
+.input {
+  display: flex;
+  margin-top: 1.6rem;
+  gap: 0.8rem;
+  width: 90%;
+  max-width: 30rem;
+}
+
+.input input {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: rgba(255, 255, 255, 0.5);
+  box-shadow: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  color: white;
+  padding: 1.6rem;
+  border-radius: 1.6rem 0 0 1.6rem;
+  font-size: 1.6rem;
+  width: 100%;
+}
+
+.input input::placeholder {
+  color: white;
+  opacity: 0.8;
+}
+
+.input button {
+  width: fit-content;
+  display: block;
+  background: rgb(255, 136, 93);
+  border: 0;
+  padding: 1.6rem;
+  font-size: 1.6rem;
+  border-radius: 0 1.6rem 1.6rem 0;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.input button:hover {
+  background: rgb(249, 115, 66);
+}
+.input button:active {
+  background: rgb(246, 81, 22);
+}

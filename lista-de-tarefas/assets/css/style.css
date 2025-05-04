@@ -259,6 +259,12 @@ button {
     align-items: center;
     text-align: center;
     margin-top: 0.8rem;
+    transition: 0.3s;
+    color: white;
+}
+
+.modal .send:disabled{
+    opacity: 0.5;;
 }
 
 .modal .close {

@@ -6,12 +6,10 @@ app.controller('TaskController', function ($scope, TaskService) {
     $scope.today = new Date().toLocaleDateString();
     $scope.tasks = TaskService.getTasks();
     //$scope.tasks = 
-    console.log(TaskService)
     $scope.taskInput = {
         title: "",
         date: "",
     };
-
 
     $scope.toggleModal = () => {
         $scope.modalActive = !$scope.modalActive;
@@ -40,5 +38,24 @@ app.controller('TaskController', function ($scope, TaskService) {
         $scope.tasks = TaskService.getTasks();
     };
 
-    console.log($scope.tasks)
+    $scope.validate = (error, touched) =>{
+        if(!touched) {
+            return {}
+        }
+        const values = Object.values(error);
+        if (values.length === 0) {
+            return {}
+        }
+        const isTrue = values.reduce((acc, cur) => acc && cur, true);
+
+        if (isTrue) {
+            console.log({ "border-color": "red"});
+            return { "border-color": "red"};
+        };
+    };
+
+    $scope.validateForm = (form) => {
+        console.log(form)
+    }
+
 });

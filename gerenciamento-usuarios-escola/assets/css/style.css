@@ -5,14 +5,12 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    text-decoration: none;
 }
 
 body {
     font-family: Arial, sans-serif;
-    background-color: rgb(244, 246, 248);
+    background-color: #f4f6f8;
     padding: 20px;
-    height: 100vh;
 }
 
 body.modal-open {
@@ -20,43 +18,13 @@ body.modal-open {
 }
 
 h1 {
-    color: rgb(44, 62, 80);
+    color: #2c3e50;
     margin-bottom: 30px;
     text-align: center;
 }
 
-.user-card {
-    background-color: rgb(255, 255, 255);
-    padding: 20px;
-    margin: 10px auto;
-    width: 40rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.user-info {
-    flex: 1;
-    margin-left: 20px;
-}
-
-.user-card p {
-    font-size: 18px;
-    margin: 10px 0;
-}
-
-.user-image {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid rgb(238, 238, 238);
-}
-
 .filters {
-    background-color: rgb(255, 255, 255);
+    background-color: white;
     padding: 20px;
     margin: 20px auto;
     max-width: 600px;
@@ -68,16 +36,17 @@ h1 {
     margin-bottom: 15px;
 }
 
-label {
+.filter-group label {
     display: block;
     margin-bottom: 5px;
     font-weight: 500;
 }
 
-input[type="text"], select {
+.filter-group input,
+.filter-group select {
     width: 100%;
     padding: 8px;
-    border: 1px solid rgb(221, 221, 221);
+    border: 1px solid #ddd;
     border-radius: 4px;
 }
 
@@ -92,17 +61,74 @@ input[type="text"], select {
 }
 
 .add-btn {
-    background-color: rgb(46, 204, 113);
-    color: rgb(255, 255, 255);
+    background-color: #2ecc71;
+    color: white;
     border: none;
     padding: 8px 15px;
     border-radius: 4px;
     cursor: pointer;
     margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
 }
 
-.add-btn:hover {
-    background-color: rgb(39, 174, 96);
+.add-btn:hover:not(:disabled) {
+    background-color: #27ae60;
+}
+
+.add-btn:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+.user-card {
+    background-color: white;
+    padding: 20px;
+    margin: 10px auto;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+.user-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #eee;
+}
+
+.user-info {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.user-info p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.remove-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.remove-btn:hover {
+    background-color: #c0392b;
 }
 
 .modal-overlay {
@@ -120,12 +146,17 @@ input[type="text"], select {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgb(255, 255, 255);
+    background-color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     z-index: 1001;
-    width: 400px;
+    width: 90%;
+    max-width: 400px;
+}
+
+.add-user-modal.saving {
+    cursor: wait;
 }
 
 .modal-header {
@@ -137,47 +168,94 @@ input[type="text"], select {
 
 .close-icon {
     cursor: pointer;
-    color: rgb(127, 140, 141);
+    color: #7f8c8d;
 }
 
 .close-icon:hover {
-    color: rgb(52, 73, 94);
+    color: #34495e;
 }
 
 .form-group {
     margin-bottom: 15px;
 }
 
-.add-user-modal button {
-    background-color: rgb(52, 152, 219);
-    color: rgb(255, 255, 255);
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.add-user-modal button[type="submit"] {
+    background-color: #3498db;
+    color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 10px;
     border-radius: 4px;
     cursor: pointer;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
 
-.add-user-modal button:hover {
-    background-color: rgb(41, 128, 185);
+.add-user-modal button[type="submit"]:hover:not(:disabled) {
+    background-color: #2980b9;
 }
 
-.add-user-modal button:disabled {
-    background-color: rgb(149, 165, 166);
+.add-user-modal button[type="submit"]:disabled {
+    background-color: #bdc3c7;
     cursor: not-allowed;
 }
 
-.remove-btn {
-    background-color: rgb(231, 76, 60);
-    color: rgb(255, 255, 255);
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    position: absolute;
-    right: 20px;
+.success-message {
+    color: #27ae60;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
 }
 
-.remove-btn:hover {
-    background-color: rgb(192, 57, 43);
+.spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+    .user-card {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .user-info {
+        margin-left: 0;
+        margin-top: 15px;
+        text-align: center;
+    }
+    
+    .remove-btn {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        margin-top: 15px;
+    }
 }

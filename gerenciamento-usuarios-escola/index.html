@@ -3,10 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Escola</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuários</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body ng-controller="AppController" ng-class="{'modal-open': showForm}">
@@ -28,47 +29,74 @@
         </div>
 
         <div class="counters">
-            <span>Total de Alunos: {{ (usuarios | filter:{tipo:'Aluno'}).length }}</span>
-            <span>Total de Professores: {{ (usuarios | filter:{tipo:'Professor'}).length }}</span>
-            <button class="add-btn" ng-click="showForm = true">Adicionar Usuário</button>
+            <span>Total de Alunos: {{ totalAlunos }}</span>
+            <span>Total de Professores: {{ totalProfessores }}</span>
+            <button class="add-btn" ng-click="showForm = true" ng-disabled="isSaving">
+                <i class="material-icons">add</i> Adicionar Usuário
+            </button>
         </div>
     </div>
 
-    <div class="modal-overlay" ng-show="showForm" ng-click="showForm = false"></div>
+    <div class="modal-overlay" ng-show="showForm" ng-click="!isSaving && (showForm = false)"></div>
 
-    <div class="add-user-modal" ng-show="showForm">
+    <div class="add-user-modal" ng-show="showForm" ng-class="{'saving': isSaving}">
         <div class="modal-header">
             <h2>Adicionar Novo Usuário</h2>
-            <i class="material-icons close-icon" ng-click="showForm = false">close</i>
+            <i class="material-icons close-icon" ng-click="!isSaving && (showForm = false)">close</i>
         </div>
-        <form ng-submit="adicionarUsuario()" ng-click="$event.stopPropagation()">
+        <form name="usuarioForm" ng-submit="adicionarUsuario(usuarioForm)" ng-click="$event.stopPropagation()">
             <div class="form-group">
                 <label for="nome">Nome:</label>
-                <input type="text" id="nome" ng-model="novoUsuario.nome" required>
+                <input type="text" id="nome" name="nome" ng-model="novoUsuario.nome" required ng-disabled="isSaving">
+                <div class="error-message" ng-show="usuarioForm.nome.$touched && usuarioForm.nome.$error.required">
+                    Nome é obrigatório
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" ng-model="novoUsuario.email" required
+                    ng-disabled="isSaving">
+                <div class="error-message" ng-show="usuarioForm.email.$touched && usuarioForm.email.$error.required">
+                    Email é obrigatório
+                </div>
+                <div class="error-message" ng-show="usuarioForm.email.$touched && usuarioForm.email.$error.email">
+                    Digite um email válido
+                </div>
             </div>
             <div class="form-group">
                 <label for="tipo">Tipo:</label>
-                <select id="tipo" ng-model="novoUsuario.tipo" required>
+                <select id="tipo" name="tipo" ng-model="novoUsuario.tipo" required ng-disabled="isSaving">
                     <option value="Aluno">Aluno</option>
                     <option value="Professor">Professor</option>
                 </select>
             </div>
-            <button type="submit" ng-disabled="!novoUsuario.nome || !novoUsuario.tipo">Adicionar</button>
+            <button type="submit" ng-disabled="usuarioForm.$invalid || isSaving">
+                <span ng-if="!isSaving">Adicionar</span>
+                <span ng-if="isSaving">
+                    <i class="material-icons spin">autorenew</i> Salvando...
+                </span>
+            </button>
+            <div class="success-message" ng-show="saveSuccess">
+                <i class="material-icons">check_circle</i> Usuário cadastrado com sucesso!
+            </div>
         </form>
     </div>
 
-    <div ng-controller="UserListController">
-        <div ng-repeat="usuario in usuarios | filter:filtro | filter:{ tipo: filtroTipo } track by usuario.id" class="user-card">
-            <img ng-src="{{ usuario.tipo === 'Aluno' ? 'assets/imagens/image.png' : 'assets/imagens/image-copy.png' }}" 
-                 alt="{{ usuario.tipo }}" 
-                 class="user-image">
-            
+    <div>
+        <div ng-repeat="usuario in usuarios | filter:filtro | filter:{ tipo: filtroTipo } track by usuario.id"
+            class="user-card">
+            <img ng-src="{{ usuario.tipo === 'Aluno' ? 'assets/imagens/image.png' : 'assets/imagens/image-copy.png' }}"
+                alt="{{ usuario.tipo }}" class="user-image">
+
             <div class="user-info">
                 <p><strong>Nome:</strong> {{ usuario.nome | uppercase }}</p>
+                <p><strong>Email:</strong> {{ usuario.email }}</p>
                 <p><strong>Tipo:</strong> {{ usuario.tipo }}</p>
                 <p><strong>Data de Cadastro:</strong> {{ usuario.dataCadastro | date:'dd/MM/yyyy' }}</p>
             </div>
-            <button class="remove-btn" ng-click="removerUsuario(usuario.id)">Remover</button>
+            <button class="remove-btn" ng-click="removerUsuario(usuario.id)">
+                <i class="material-icons">delete</i> Remover
+            </button>
         </div>
     </div>
 
@@ -78,4 +106,5 @@
     <script src="assets/js/school.service.js"></script>
     <script src="assets/js/school.controller.js"></script>
 </body>
+
 </html>
