@@ -15,7 +15,7 @@ body {
   height: 100vh;
   font-size: 1.6rem;
   height: 100vh;
-  background: url("imagens/background.png") no-repeat center / cover;
+  background: url("imagens/background.jpg") no-repeat center / cover;
   color: white;
   display: flex;
   flex-direction: column;

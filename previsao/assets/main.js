@@ -1,4 +1,4 @@
-const apiKey = "23e4d2256c67be1ba2c52be135966b95";
+const apiKey = "";
 const lang = "pt-br";
 const units = "metric";
 const app = angular.module("weatherApp", []);

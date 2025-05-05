@@ -1,4 +1,4 @@
-const apiKey = "23e4d2256c67be1ba2c52be135966b95";
+const apiKey = "";
 const lang = "pt-br";
 const units = "metric";
 
@@ -22,7 +22,7 @@ async function callApi() {
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}&lang=${lang}`
     );
     const data = await response.json();
-    
+
     const icon = data.weather[0].icon;
     const iconUrl = `https://openweathermap.org/img/wn/${icon}@4x.png`;
     iconEl.src = iconUrl;
