@@ -124,7 +124,7 @@ header {
     color: white;
     animation-delay: 1s;
     flex-wrap: wrap;
-    padding: 32px;
+    padding-bottom: 32px;
 }
 
 .projetos {
